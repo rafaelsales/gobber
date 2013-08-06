@@ -1,4 +1,22 @@
-gobber
+Gobber
 ======
 
-Original repo: https://github.com/rafaelsales/gobber
+Hello! Yes, my name speak by itself
+
+How am I useful?
+---------------
+
+When...
+* you work on a distributed team
+* and want to talk to someone from another office
+* but chat room just doesn't work because people take too long to see it
+
+Then you should give me a try
+
+How do I work?
+-------------
+
+* Deploy-me to a server
+* Open-me in all offices browsers
+* Identify each opened page with a (nick)name (office name, city, region, country or whatever)
+* Start calling people's attention
