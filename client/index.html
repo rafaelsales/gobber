@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <h2>Gobber</h2>
+
+    {{> sign_in }}
+    {{> dashboard }}
+  <body/>
+
+  <template name="sign_in">
+  {{#if show}}
+    <input id="office_name" type="text"/>
+    <button id="join">Join</button>
+  {{/if}}
+  </template>
+
+  <template name="dashboard">
+  {{#if show}}
+    <div><input type="checkbox" name="target"/>All</div>
+    {{#each offices}}
+    <div><input type="checkbox" name="target" value="{{_id}}">{{name}}</div>
+    {{/each}}
+  {{/if}}
+  </template>
+</html>
