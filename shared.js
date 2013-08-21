@@ -1,7 +1,7 @@
-Offices = new Meteor.Collection('offices');
+Users = new Meteor.Collection('users');
 
 if (Meteor.isServer) {
-  // publish all offices
-  Meteor.publish('offices', function () {
-  return Offices.find();
-});
+  Meteor.publish('Users', function() {
+    return Users.find();
+  });
+}

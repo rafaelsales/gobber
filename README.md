@@ -1,7 +1,7 @@
 Gobber
 ======
 
-Hello! Yes, my name speak by itself
+Hello! Yes, my name speaks for itself.
 
 How am I useful?
 ---------------
@@ -18,5 +18,5 @@ How do I work?
 
 * Deploy-me to a server
 * Open-me in all offices browsers
-* Identify each opened page with a (nick)name (office name, city, region, country or whatever)
+* Identify each opened page with a (nick)name, i.e., office name, city, region, country or whatever
 * Start calling people's attention
