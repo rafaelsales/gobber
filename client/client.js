@@ -47,15 +47,7 @@ Template.dashboard.me = function() {
 Template.dashboard.events({
 	'click button#send': function() {
 		var message = $('#dashboard input#message').val().trim();
-		var sendToAll = $('#dashboard #sendToAll').is(':checked');
-
-		if (sendToAll) {
-			var receivers = SEND_TO_ALL_ID;
-		} else {
-			var receivers = $('#dashboard :checkbox[name=target]:checked')
-											  .map(function() { return $(this).val(); }).toArray();
-		}
-
+		var receivers = UI.getReceivers() || SEND_TO_ALL_ID;
 		console.log('[Sending message] to: [' + receivers + ']; message: ' + message);
 
 		if (message.length) {
