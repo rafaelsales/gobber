@@ -17,19 +17,25 @@
         </ul>
       {{/if}}
 
-      <input id="name" type="text"/>
+      <input id="name" type="text" placeholder="Your name"/>
       <button id="join">Join</button>
     {{/if}}
   </div>
 </template>
 
 <template name="dashboard">
-  {{#if show}}
-    <div><input type="checkbox" name="target"/>All</div>
-    {{#each users}}
-    <div>
-      <input type="checkbox" name="target" value="{{_id}}">{{name}}</input>
-    </div>
-    {{/each}}
-  {{/if}}
+  <div id="dashboard">
+    {{#if show}}
+      <h3>Users online:</h3>
+      <div><input type="checkbox" name="target"/><strong>All</strong></div>
+      {{#each users}}
+      <div>
+        <input type="checkbox" name="target" value="{{_id}}">{{name}}</input>
+      </div>
+      {{/each}}
+
+      <input type="text" id="message" size="30" placeholder="Enter your message"/>
+      <button id="send">Send</button>
+    {{/if}}
+  </div>
 </template>

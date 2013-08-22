@@ -1,0 +1,15 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "streams": {}
+    },
+    "packages": {
+      "streams": {
+        "git": "https://github.com/arunoda/meteor-streams.git",
+        "tag": "v0.1.14",
+        "commit": "ef38fb1d96efb775b280374024f8d7ed0974d849"
+      }
+    }
+  }
+}

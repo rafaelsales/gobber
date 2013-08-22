@@ -1,3 +1,13 @@
+chatStream = new Meteor.Stream('chat');
+
+chatStream.permissions.write(function() {
+  return true;
+});
+
+chatStream.permissions.read(function() {
+  return true;
+});
+
 Meteor.methods({
   joinRoom: function(name) {
 		var userId = Users.insert({ name: name,
