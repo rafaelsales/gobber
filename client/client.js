@@ -1,3 +1,5 @@
+window.googleTTS = new GoogleTTS('en-US');
+
 var user = function() {
   return Users.findOne(Session.get('userId'));
 };
@@ -13,6 +15,7 @@ Template.join.users = function() {
 Template.join.events({
 	'click button#join': function() {
 		var name = $('#lobby input#name').val().trim();
+		GoofedTTS.speak("Welcome " + name);
 		Meteor.call('joinRoom', name, function(error, userId) {
 			Session.set('userId', userId);
 		});
