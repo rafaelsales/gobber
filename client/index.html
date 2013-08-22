@@ -26,13 +26,17 @@
 <template name="dashboard">
   <div id="dashboard">
     {{#if show}}
+      <h4>My name: {{me.name}}</h4>
       <h3>Users online:</h3>
-      <div><input type="checkbox" name="target"/><strong>All</strong></div>
-      {{#each users}}
-      <div>
-        <input type="checkbox" name="target" value="{{_id}}">{{name}}</input>
+
+      <div id="receivers" style="margin-bottom: 10px;">
+        <div><input id="sendToAll" type="checkbox" checked/><strong>All</strong></div>
+        {{#each users}}
+        <div>
+          <input type="checkbox" name="target" value="{{_id}}">{{name}}</input>
+        </div>
+        {{/each}}
       </div>
-      {{/each}}
 
       <input type="text" id="message" size="30" placeholder="Enter your message"/>
       <button id="send">Send</button>

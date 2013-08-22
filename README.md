@@ -20,3 +20,9 @@ How do I work?
 * Open-me in all offices browsers
 * Identify each opened page with a (nick)name, i.e., office name, city, region, country or whatever
 * Start calling people's attention
+
+Configuring
+-----------
+
+* Install meteor: `$ curl https://install.meteor.com | /bin/sh`
+* From Gobber project directory, run `$ meteor`
