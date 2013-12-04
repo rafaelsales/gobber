@@ -1,6 +1,7 @@
-const SEND_TO_ALL_ID = '_all_';
+Users = new Meteor.Collection('users');
+ChatStream = new Meteor.Stream('chat');
 
-chatStream = new Meteor.Stream('chat');
+const SEND_TO_ALL_ID = '_all_';
 
 var me = function() {
 	return Session.get('me');
@@ -25,7 +26,7 @@ Template.join.events({
 		Meteor.call('joinRoom', name, function(error, userId) {
 			console.log('My id is: ' + userId);
 			Session.set('me', { id: userId, name: name });
-			chatStream.emit('join', name);
+			ChatStream.emit('join', name);
 
 			GoofedTTS.speak('Welcome ' + name);
 		});
@@ -51,7 +52,7 @@ Template.dashboard.events({
 		console.log('[Sending message] to: [' + receivers + ']; message: ' + message);
 
 		if (message.length) {
-			chatStream.emit('message', { from: me().name, to: receivers, message: message });
+		  ChatStream.emit('message', { from: me().name, to: receivers, message: message });
 		}
 	}
 });
@@ -60,7 +61,7 @@ Template.dashboard.rendered = function() {
 	UI.synchonizeAllSelected(false);
 };
 
-chatStream.on('message', function(msgObj) {
+ChatStream.on('message', function(msgObj) {
 	if (msgObj.to == SEND_TO_ALL_ID || $.inArray(me().id, msgObj.to) != -1) {
 		var message = msgObj.from + ' says: ' + msgObj.message;
 		console.log('[Message received] ' + message);
@@ -68,7 +69,7 @@ chatStream.on('message', function(msgObj) {
 	}
 });
 
-chatStream.on('join', function(name) {
+ChatStream.on('join', function(name) {
 	console.log('[Person joined] ' + name);
 	GoofedTTS.speak(name + ' has entered the room');
 });

@@ -1,10 +1,15 @@
-chatStream = new Meteor.Stream('chat');
+Users = new Meteor.Collection('users');
+ChatStream = new Meteor.Stream('chat');
 
-chatStream.permissions.write(function() {
+Meteor.publish('Users', function() {
+  return Users.find();
+});
+
+ChatStream.permissions.write(function() {
   return true;
 });
 
-chatStream.permissions.read(function() {
+ChatStream.permissions.read(function() {
   return true;
 });
 
